@@ -17,7 +17,20 @@ pub fn bool_then<T>(b: bool, f: impl FnOnce() -> T) -> Option<T> {
     }
 }
 
+pub trait Hei {
+    fn hei(&self);
+}
+
+impl Hei for &str {
+    fn hei(&self) {
+        println!("hei {}", self);
+    }
+}
+
 pub fn foo() {
-    strlen("hello world");
-    strlen(String::from("hei verden"));
+    "J".hei();
+}
+
+pub fn bar(h: impl Hei) {
+    h.hei();
 }
